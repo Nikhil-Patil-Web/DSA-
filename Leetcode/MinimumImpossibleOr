@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int minImpossibleOR(vector<int>& nums) {
+        //we make use of map
+        map<int, int> myMap;
+        for(auto temp: nums){
+            myMap[temp]=0;
+        }
+        for(auto temp: nums) {
+            myMap[temp]=myMap[temp]+1;
+        }
+        int temp=1;
+        while(true){
+            if(myMap.find(temp)==myMap.end())
+                return temp;
+            temp=temp*2;
+        }
+        return temp;
+    }
+};
